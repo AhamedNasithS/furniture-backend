@@ -1,5 +1,5 @@
-const Sequelize = require("sequelize");
-
+const { Sequelize } = require("sequelize");
+const mysql2 = require("mysql2");
 require("dotenv").config();
 
 const sequelize = new Sequelize(
@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
     host: process.env.HOST,
     port: process.env.DBPORT,
     dialect: "mysql",
+    dialectModule: mysql2,
 
     dialectOptions: {
       charset: "utf8mb4",
